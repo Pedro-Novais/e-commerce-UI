@@ -5,9 +5,9 @@ import './App.css'
 
 const App: React.FC = () => {
   return (
-    <ShopProvider>
+    // <ShopProvider>
       <AppRoutes />
-    </ShopProvider>
+    // </ShopProvider>
   );
 };
 export default App

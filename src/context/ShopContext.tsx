@@ -1,27 +1,9 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-import { getShopService, updateShopService } from "../service/ShopService";
-import { setThemeColors } from "../utils/themeUtils";  
+import ShopService from "../service/_ShopService";
+import { ShopContextType, ShopType, ColorShopType } from "../types/ShopTypes";
 
-type ColorType = {
-    backgroundColor: string;
-    fontColor: string;
-    headerColor: string;
-    footerColor: string;
-};
-
-type Shop = {
-    id: string;
-    color: object;
-};
-
-type ShopContextType = {
-    shop: Shop | undefined;
-    isLoading: boolean;
-    error: string | null;
-    getShopService: () => Promise<void>;
-    updateShopService: (data: any) => Promise<void>;
-};
+import { setThemeColors } from "../utils/themeUtils";
 
 const ShopContext = createContext<ShopContextType | undefined>(undefined);
 
@@ -30,25 +12,27 @@ interface ShopProviderProps {
 }
 
 export const ShopProvider: React.FC<ShopProviderProps> = ({ children }) => {
-    const [shop, setShop] = useState<Shop | undefined>(undefined);
+    const [shop, setShop] = useState<ShopType | undefined>(undefined);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+
+    const shopService = new ShopService()
 
     const fetchGetShop = async () => {
         setIsLoading(true);
         try {
-            
-            const data = await getShopService();
+
+            const data = await shopService.getShop();
             setShop(data);
 
-            const defaultColors: ColorType = {
+            const defaultColors: ColorShopType = {
                 backgroundColor: data.color?.backgroundColor ?? "green",
                 fontColor: data.color?.fontColor ?? "green",
                 headerColor: data.color?.headerColor ?? "green",
                 footerColor: data.color?.footerColor ?? "green",
             };
 
-            setThemeColors(defaultColors); 
+            setThemeColors(defaultColors);
 
         } catch (err) {
             setError("Erro ao carregar as informações da loja");
@@ -60,7 +44,7 @@ export const ShopProvider: React.FC<ShopProviderProps> = ({ children }) => {
 
     const fetchUpdateShop = async (data: any) => {
         try {
-            await updateShopService(data);
+            await shopService.updateShop(data);
             setShop(data);
         } catch (err) {
             console.error("Erro ao atualizar a loja:", err);

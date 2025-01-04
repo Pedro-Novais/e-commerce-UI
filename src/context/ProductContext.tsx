@@ -1,35 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import {
-    getOneProductService,
-    getAllProductsService,
-    createProductService,
-    updateProductService,
-    deleteProductService,
-    createRatingProductService
-} from "../service/ProductService"
-
-type Product = {
-    id: string;
-    category_id: string;
-    name: string;
-    description: string;
-    quantity: number;
-    price: number;
-    is_digital: boolean;
-    images: string[];
-    custom_properties: object[];
-    color: string;
-    size: string;
-}
-
-type ProductContextType = {
-    product: Product[]; 
-    singleProduct: Product | null;  
-    isLoading: boolean;
-    error: string | null;
-    fetchAllProduct: () => void;
-    fetchOneProduct: (id: string) => void;
-}
+import  ProductService from "../service/_ProductService"
+import { ProductType, ProductContextType } from "../types/ProductTypes";
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
@@ -38,15 +9,17 @@ interface ProductProviderProps {
 }
 
 export const ProductProvide: React.FC<ProductProviderProps> = ({ children }) => {
-    const [product, setProduct] = useState<Product[]>([]); 
-    const [singleProduct, setSingleProduct] = useState<Product | null>(null); 
+    const [product, setProduct] = useState<ProductType[]>([]); 
+    const [singleProduct, setSingleProduct] = useState<ProductType | null>(null); 
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-     
+
+    const productService = new ProductService();
+
     const fetchAllProduct = async () => {
         setIsLoading(true);
         try {
-            const data = await getAllProductsService();
+            const data = await productService.getProduct();
             setProduct(data);
         } catch (err) {
             setError("Erro ao carregar produtos");
@@ -58,7 +31,7 @@ export const ProductProvide: React.FC<ProductProviderProps> = ({ children }) => 
     const fetchOneProduct = async (id: string) => {
         setIsLoading(true);
         try {
-            const data = await getOneProductService(id);
+            const data = await productService.getOneProduct(id);
             setSingleProduct(data);
         } catch (err) {
             setError("Erro ao carregar produto");
