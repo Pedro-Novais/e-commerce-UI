@@ -1,5 +1,6 @@
 import axios from "axios";
 import {getSubdomain} from "./subdomain"
+import { responsesMsg, responsesContent } from "./responses";
 
 export default class ShopService {
   url: string | null = null;
@@ -16,7 +17,7 @@ export default class ShopService {
   getShop = async () => {
     try {
       const response = await axios.get(`${this.url}/api/shop`);
-      return response.data;
+      return responsesContent(response);
     } catch (error) {
       throw new Error("Erro ao carregar os dados da loja");
     }
@@ -25,7 +26,7 @@ export default class ShopService {
   updateShop = async (data: any) => {
     try {
       const response = await axios.post(`${this.url}/api/shop`, data);
-      return response.data;
+      return responsesMsg(response);
     } catch (error) {
       throw new Error("Erro ao atualiza configurações da loja");
     }
