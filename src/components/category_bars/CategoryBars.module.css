@@ -1,0 +1,32 @@
+.containerCatgory{
+    background-color: var(--headerSecondColor);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  .categoryList{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    outline: none;
+    overflow-y: auto;
+  }
+  
+  .categoryList li{
+    margin: 0 3em;
+    text-transform: capitalize;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit; 
+    width: 50%;
+    height: 50%;
+    text-align: center;
+  }

@@ -14,7 +14,8 @@ export type ProductType = {
 
 export type ProductContextType = {
     product: ProductType[]; 
-    singleProduct: ProductType | null;  
+    singleProduct: ProductType | null;
+    categories: string[];  
     isLoading: boolean;
     error: string | null;
     fetchAllProduct: () => void;

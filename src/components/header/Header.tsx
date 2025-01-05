@@ -110,15 +110,6 @@ const Header: React.FC = () => {
                     <FaCartArrowDown className={styles.icon} />
                 </div>
             </div>
-            <div className={styles.containerCatgory}>
-                <ul className={styles.categoryList}>
-                    {
-                        categorys.slice(0, 7).map((category, key) => (
-                            <Link to={`/category/${category.name}`} className={styles.link} key={key}><li>{category.name}</li></Link>
-                        ))
-                    }
-                </ul>
-            </div>
         </header>
     );
 };

@@ -11,6 +11,7 @@ interface ProductProviderProps {
 export const ProductProvide: React.FC<ProductProviderProps> = ({ children }) => {
     const [product, setProduct] = useState<ProductType[]>([]);
     const [singleProduct, setSingleProduct] = useState<ProductType | null>(null);
+    const [categories, setCategories] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -25,7 +26,8 @@ export const ProductProvide: React.FC<ProductProviderProps> = ({ children }) => 
                 setError(result.msg || "Erro desconhecido ao carregar produtos");
             }
             else {
-                setProduct(result.data)
+                setProduct(result.data.products)
+                setCategories(result.data.categories)
                 setError(null)
             }
         } catch (err) {
@@ -58,7 +60,7 @@ export const ProductProvide: React.FC<ProductProviderProps> = ({ children }) => 
     }, []);
 
     return (
-        <ProductContext.Provider value={{ product, singleProduct, isLoading, error, fetchAllProduct, fetchOneProduct }}>
+        <ProductContext.Provider value={{ product, singleProduct, categories, isLoading, error, fetchAllProduct, fetchOneProduct }}>
             {children}
         </ProductContext.Provider>
     );

@@ -3,9 +3,9 @@ import Product from "../../components/product/Product"
 
 const Index: React.FC = () => {
     return (
-        <ProductProvide>
+        // <ProductProvide>
             <Product />
-        </ProductProvide>
+        // </ProductProvide>
     )
 }
 

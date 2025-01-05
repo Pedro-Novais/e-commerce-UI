@@ -32,7 +32,7 @@ const Banner: React.FC<{ positionBanner: string }> = ({ positionBanner }) => {
     return (
         <div className={styles.containerBanner}>
             <div className={styles.banner}>
-                <img src={banners[currentImageIndex].url} alt="Banner" />
+                <img src={banners[currentImageIndex].url} alt="Banner" loading="lazy"/>
             </div>
         </div>
     );
