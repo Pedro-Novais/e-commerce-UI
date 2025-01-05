@@ -18,19 +18,16 @@
   font-optical-sizing: auto;
 }
 
+#root{
+  width: 100%;
+}
+
 body {
   background-color: var(--backgroundColor);
   color: var(--fontColor);
-  margin: 0;  /* Remover margem padrão */
+  margin: 0;  
   display: flex;
-  justify-content: center;  /* Centraliza o conteúdo */
-  align-items: flex-start;  /* Centraliza verticalmente */
-  height: 100vh;  /* Ocupa toda a altura da janela */
+  justify-content: center;  
+  align-items: flex-start;  
+  height: 100vh; 
 }
-
-/* .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-
-} */

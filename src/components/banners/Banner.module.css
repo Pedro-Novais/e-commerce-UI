@@ -1,0 +1,27 @@
+.containerBanner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2em;
+}
+
+.banner{
+    width: 100%;
+}
+
+.banner img{
+    width: 100%;
+    border-radius: 1em;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+@media (max-width: 768px){
+    .containerBanner{
+        padding: 0;
+        padding-top: 2em;
+    }
+    .banner img{
+        border-radius: 0;
+    }
+}

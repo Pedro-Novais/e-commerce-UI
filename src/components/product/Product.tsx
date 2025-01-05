@@ -22,7 +22,6 @@ const Product: React.FC = () => {
                 {item.name} - {item.price} (Quantidade: {item.quantity})
               </li>
             ))} */}
-            teste
         </div>
     )
 }
