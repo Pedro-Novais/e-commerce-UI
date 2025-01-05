@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import  ProductService from "../service/_ProductService"
+import ProductService from "../service/_ProductService"
 import { ProductType, ProductContextType } from "../types/ProductTypes";
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
@@ -9,8 +9,8 @@ interface ProductProviderProps {
 }
 
 export const ProductProvide: React.FC<ProductProviderProps> = ({ children }) => {
-    const [product, setProduct] = useState<ProductType[]>([]); 
-    const [singleProduct, setSingleProduct] = useState<ProductType | null>(null); 
+    const [product, setProduct] = useState<ProductType[]>([]);
+    const [singleProduct, setSingleProduct] = useState<ProductType | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -19,8 +19,15 @@ export const ProductProvide: React.FC<ProductProviderProps> = ({ children }) => 
     const fetchAllProduct = async () => {
         setIsLoading(true);
         try {
-            const data = await productService.getProduct();
-            setProduct(data);
+            const result = await productService.getProduct();
+
+            if (!result.success) {
+                setError(result.msg || "Erro desconhecido ao carregar produtos");
+            }
+            else {
+                setProduct(result.data)
+                setError(null)
+            }
         } catch (err) {
             setError("Erro ao carregar produtos");
         } finally {
@@ -31,8 +38,14 @@ export const ProductProvide: React.FC<ProductProviderProps> = ({ children }) => 
     const fetchOneProduct = async (id: string) => {
         setIsLoading(true);
         try {
-            const data = await productService.getOneProduct(id);
-            setSingleProduct(data);
+            const result = await productService.getOneProduct(id);
+            if (!result.success) {
+                setError(result.msg || "Erro desconhecido ao carregar produto");
+            }
+            else {
+                setProduct(result.data)
+                setError(null)
+            }
         } catch (err) {
             setError("Erro ao carregar produto");
         } finally {

@@ -23,16 +23,17 @@ export const ShopProvider: React.FC<ShopProviderProps> = ({ children }) => {
         try {
 
             const data = await shopService.getShop();
+            console.log(data)
             setShop(data);
 
-            const defaultColors: ColorShopType = {
-                backgroundColor: data.color?.backgroundColor ?? "green",
-                fontColor: data.color?.fontColor ?? "green",
-                headerColor: data.color?.headerColor ?? "green",
-                footerColor: data.color?.footerColor ?? "green",
-            };
+            // const defaultColors: ColorShopType = {
+            //     backgroundColor: data.color?.backgroundColor ?? "green",
+            //     fontColor: data.color?.fontColor ?? "green",
+            //     headerColor: data.color?.headerColor ?? "green",
+            //     footerColor: data.color?.footerColor ?? "green",
+            // };
 
-            setThemeColors(defaultColors);
+            // setThemeColors(defaultColors);
 
         } catch (err) {
             setError("Erro ao carregar as informações da loja");
