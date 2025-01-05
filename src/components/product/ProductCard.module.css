@@ -1,0 +1,132 @@
+.cardProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    text-align: center;
+    padding: 1em;
+}
+
+.addFavorite{
+    position: relative;
+    left: 1px;
+    cursor: pointer;
+}
+
+.addFavorite svg{
+    width: 100px;
+    height: 20px;
+}
+
+.cardProductImage{
+    width: 70%;
+}
+
+.cardProductImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.productName{
+    font-size: 1em;
+    text-shadow: 2px 5px 15px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    width: 100%;
+    margin: 1em;
+}
+
+.cardProductInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    min-height: 15vh;
+    width: 100%;
+}
+
+.cardProductInfoColor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 70%;
+}
+
+.colorItem{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid 1px rgb(158, 157, 157);
+    margin: .5em;
+}
+
+.cardProductInfoSize{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 70%;
+    margin: 1em;
+}
+
+.sizeItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 50%;
+    border: solid 1px rgb(158, 157, 157);
+    margin: .5em;
+    font-size: 10px;
+}
+
+.containerButtons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.buttonCardProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 30%;
+    /* background-color: var(--headerSecondColor); */
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+.buttonCardProduct svg{
+    width: 40%;
+    height: 30%;
+}
+
+@media (max-width: 1000px){
+    .containerButtons{
+        flex-direction: column-reverse;
+    }
+    .buttonCardProduct{
+        width: 80%;
+        height: 30%;
+        margin: 1em;
+    }
+    .buttonCardProduct svg{
+        width: 20px;
+        height: 20px;
+    }
+    
+}

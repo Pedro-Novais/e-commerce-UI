@@ -2,13 +2,13 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import IndexLayout from "../layouts/IndexLayout";
-import Index from "../containers/index/Index";
+import IndexContainer from "../containers/index/IndexContainer";
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<IndexLayout />}>
-        <Route index element={<Index />} />
+        <Route index element={<IndexContainer />} />
         <Route path="products" element={<div>produto</div>} />
         <Route path="product/:id" element={<div>produto id</div>} />
         <Route path="cart" element={<div>carrinho</div>} />

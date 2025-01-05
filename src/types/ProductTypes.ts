@@ -10,6 +10,7 @@ export type ProductType = {
     custom_properties: object[];
     color: string;
     size: string;
+    variants: VariantsProduct[];
 }
 
 export type ProductContextType = {
@@ -20,4 +21,11 @@ export type ProductContextType = {
     error: string | null;
     fetchAllProduct: () => void;
     fetchOneProduct: (id: string) => void;
+}
+
+type VariantsProduct = {
+    color: string;
+    size: string;
+    images: string[];
+    value: number;
 }

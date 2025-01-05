@@ -1,0 +1,22 @@
+.containerProduct {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 10vh;
+}
+
+@media (max-width: 1024px) {
+    .containerProduct {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cardProduct {
+        grid-template-columns: 1fr;
+    }
+}
