@@ -43,6 +43,7 @@
     .containerProduct {
         grid-template-columns: repeat(2, 1fr);
         padding: 5px;
+        gap: 5px;
     }
 
     .skeletonCardProduct{

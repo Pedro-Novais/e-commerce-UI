@@ -10,7 +10,7 @@ const IndexContainer: React.FC = () => {
         <>
             <CategoryBars />
             <Banner positionBanner="top" />
-            <h2 style={{ marginTop: "20px" }}>Confira nossos produtos</h2>
+            <h2 style={{ margin: "20px" }}>Confira nossos produtos</h2>
             <main className={styles.containerContent}>
                 {/* <FilterProduct /> */}
                 <Product />
