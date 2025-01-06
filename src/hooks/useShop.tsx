@@ -1,7 +1,7 @@
 import { useShop } from "../context/ShopContext";
 
 export const useShopHook = () => {
-    const { shop, getShopService, updateShopService } = useShop()
+    const { shop, isLoading, getShopService, updateShopService } = useShop()
 
-    return { shop, getShopService, updateShopService }
+    return { shop, isLoading, getShopService, updateShopService }
 }

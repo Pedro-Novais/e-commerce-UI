@@ -25,12 +25,11 @@ export const ShopProvider: React.FC<ShopProviderProps> = ({ children }) => {
             const result = await shopService.getShop();
 
             if (!result.success) {
-                setError(result.msg || "Erro desconhecido ao carregar produtos");
+                setError(result.msg || "Erro desconhecido ao carregar dados da loja");
             }
             else {
                 setShop(result.data);
                 setError(null)
-                console.log(result.data)
             }
 
             // const defaultColors: ColorShopType = {

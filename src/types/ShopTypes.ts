@@ -8,7 +8,8 @@ export type ColorShopType = {
 export type ShopType = {
     id: string;
     color: object;
-    images: ImagesType[]
+    images: ImagesType[];
+    is_active: boolean;
 };
 
 export type ShopContextType = {
