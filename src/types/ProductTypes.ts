@@ -6,7 +6,8 @@ export type ProductType = {
     quantity: number;
     price: number;
     is_digital: boolean;
-    images: string[];
+    image: string;
+    slug: String;
     custom_properties: object[];
     color: string;
     size: string;
