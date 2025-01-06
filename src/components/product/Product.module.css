@@ -6,12 +6,47 @@
     align-items: center;
     padding: 20px;
     min-height: 10vh;
+    width: 100%;
 }
+
+.skeletonCardProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    text-align: center;
+    padding: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(19, 19, 19);
+    width: 100%;
+    background-color: rgb(167, 166, 166);
+    height: 55vh;
+    width: 20vw;
+    animation: skeleton-loading 1s alternate ease infinite;
+}
+
+@keyframes skeleton-loading {
+    from {
+        opacity: .3;
+    }
+
+    to {
+        opacity: .7;
+    }
+}
+
 
 @media (max-width: 1024px) {
     .containerProduct {
         grid-template-columns: repeat(2, 1fr);
         padding: 5px;
+    }
+
+    .skeletonCardProduct{
+        width: 40vw;
     }
 }
 

@@ -9,11 +9,10 @@ const AppRoutes: React.FC = () => {
     <Routes>
       <Route path="/" element={<IndexLayout />}>
         <Route index element={<IndexContainer />} />
-        <Route path="products" element={<div>produto</div>} />
-        <Route path="product/:id" element={<div>produto id</div>} />
-        <Route path="cart" element={<div>carrinho</div>} />
+        <Route path="/:slug" element={<div>produto id</div>} />
+        <Route path="carrinho" element={<div>carrinho</div>} />
         <Route path="checkout" element={<div>checkout</div>} />
-        <Route path="orders" element={<div>pedidos</div>} />
+        <Route path="pedidos" element={<div>pedidos</div>} />
       </Route>
     </Routes>
   );

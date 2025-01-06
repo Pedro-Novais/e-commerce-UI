@@ -19,41 +19,6 @@ const Header: React.FC = () => {
         setOpenBar(!openBar)
     }
 
-    const categorys = [
-        {
-            "name": "eletronicos",
-            "id": "teste"
-        },
-        {
-            "name": "moveis",
-            "id": "teste"
-        },
-        {
-            "name": "roupas",
-            "id": "teste"
-        },
-        {
-            "name": "comida",
-            "id": "teste"
-        },
-        {
-            "name": "automoveis",
-            "id": "teste"
-        },
-        {
-            "name": "beneficios",
-            "id": "teste"
-        },
-        {
-            "name": "qualquer coisa",
-            "id": "teste"
-        },
-        {
-            "name": "ok",
-            "id": "teste"
-        }
-    ]
-
     const userLogged = true
 
     return (
@@ -92,7 +57,7 @@ const Header: React.FC = () => {
                         type="text"
                         placeholder="Buscar produtos..."
                         value={searchTerm}
-                        onChange={handleSearchChange}
+                        onChange={(event) => handleSearchChange(event)}
                         className={styles.searchInput}
                     />
                     <button className={styles.btnSearch} onClick={handleSearch}>

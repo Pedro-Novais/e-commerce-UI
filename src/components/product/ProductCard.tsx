@@ -14,10 +14,11 @@ const ProductCard: React.FC<{ product: ProductType }> = ({ product }) => {
     console.log(product)
 
     return (
-            <Link to={`/${product.slug}`} key={product.id} className={styles.cardProduct}>
-                <div className={styles.addFavorite}>
-                    <MdFavoriteBorder />
-                </div>
+        <div key={product.id} className={styles.cardProduct}>
+            <div className={styles.addFavorite}>
+                <MdFavoriteBorder />
+            </div>
+            <Link to={`/${product.slug}`} className={styles.link}>
                 <div className={styles.cardProductImage}>
                     <img src={product.image} alt="Produto" />
                 </div>
@@ -41,15 +42,16 @@ const ProductCard: React.FC<{ product: ProductType }> = ({ product }) => {
                     </div>
                     <span className={styles.priceProduct}>R${product.price}</span>
                 </div>
-                {/* <div className={styles.containerButtons}>
-                    <button className={styles.buttonCardProduct}>
-                        <FaMoneyBill />
-                    </button>
-                    <button className={styles.buttonCardProduct}>
-                        <TiShoppingCart />
-                    </button>
-                </div> */}
             </Link>
+            <div className={styles.containerButtons}>
+                <button className={styles.buttonCardProduct}>
+                    <FaMoneyBill />
+                </button>
+                <button className={styles.buttonCardProduct}>
+                    <TiShoppingCart />
+                </button>
+            </div>
+        </div>
     )
 }
 

@@ -5,10 +5,8 @@ import styles from "./Banner.module.css";
 const Banner: React.FC<{ positionBanner: string }> = ({ positionBanner }) => {
     const { shop } = useShopHook();
 
-    // Todos os Hooks devem ser chamados na mesma ordem em todas as renderizações
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
-    // Prepara a lista de banners - mesmo que seja vazia
     const banners = shop?.images?.filter(
         (banner) => banner.type === "banner" && banner.position === positionBanner
     ) || [];
