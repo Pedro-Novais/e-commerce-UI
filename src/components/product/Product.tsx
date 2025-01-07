@@ -17,7 +17,7 @@ const Product: React.FC = () => {
         <div className={styles.containerProduct}>
             {
                 isLoading ? (
-                    Array.from({ length: 6 }).map((_, index) => (
+                    Array.from({ length: 8 }).map((_, index) => (
                         <div key={index} className={styles.skeletonCardProduct} />
                     ))
                 ) : (

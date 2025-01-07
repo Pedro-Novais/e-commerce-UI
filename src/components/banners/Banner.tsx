@@ -3,7 +3,7 @@ import { useShopHook } from "../../hooks/useShop";
 import styles from "./Banner.module.css";
 
 const Banner: React.FC<{ positionBanner: string }> = ({ positionBanner }) => {
-    const { shop } = useShopHook();
+    const { shop} = useShopHook();
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
@@ -12,7 +12,6 @@ const Banner: React.FC<{ positionBanner: string }> = ({ positionBanner }) => {
     ) || [];
 
     useEffect(() => {
-        if (banners.length === 0) return;
 
         const intervalId = setInterval(() => {
             setCurrentImageIndex((prevIndex) =>
@@ -21,7 +20,7 @@ const Banner: React.FC<{ positionBanner: string }> = ({ positionBanner }) => {
         }, 5000);
 
         return () => clearInterval(intervalId);
-    }, [banners.length]); 
+    }, [banners.length]);
 
     if (banners.length === 0) {
         return null
@@ -30,7 +29,7 @@ const Banner: React.FC<{ positionBanner: string }> = ({ positionBanner }) => {
     return (
         <div className={styles.containerBanner}>
             <div className={styles.banner}>
-                <img src={banners[currentImageIndex].url} alt="Banner" loading="lazy"/>
+                <img src={banners[currentImageIndex].url} alt="Banner" loading="lazy" />
             </div>
         </div>
     );

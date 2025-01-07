@@ -16,6 +16,26 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
+
+.skeletonContainerBanner{
+    background-color: rgb(167, 166, 166);
+    width: 90%;
+    height: 50vh;
+    margin-top: 1em;
+    border-radius: 1em;
+    animation: skeleton-loading 1s alternate ease infinite;
+}
+
+@keyframes skeleton-loading {
+    from {
+        opacity: .3;
+    }
+
+    to {
+        opacity: .7;
+    }
+}
+
 @media (max-width: 768px){
     .containerBanner{
         padding: 0;

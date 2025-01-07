@@ -16,7 +16,7 @@ export default class ShopService {
 
   getShop = async () => {
     try {
-      const response = await axios.get(`${this.url}/api/shop`);
+      const response = await axios.get(`${this.url}/api/shop`, {validateStatus: (status) => status < 500});
       return responsesContent(response);
     } catch (error) {
       throw new Error("Erro ao carregar os dados da loja");
@@ -25,7 +25,7 @@ export default class ShopService {
 
   updateShop = async (data: any) => {
     try {
-      const response = await axios.post(`${this.url}/api/shop`, data);
+      const response = await axios.post(`${this.url}/api/shop`, data, {validateStatus: (status) => status < 500});
       return responsesMsg(response);
     } catch (error) {
       throw new Error("Erro ao atualiza configurações da loja");

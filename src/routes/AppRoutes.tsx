@@ -3,9 +3,11 @@ import { Routes, Route } from "react-router-dom";
 
 import { useShopHook } from "../hooks/useShop";
 
-import ErrorShop from "../containers/error/ErrorShop";
-import IndexLayout from "../layouts/IndexLayout";
+import IndexLayout from "../layouts/index/IndexLayout";
 import IndexContainer from "../containers/index/IndexContainer";
+
+import AuthLayout from "../layouts/auth/AuthLayout";
+import ErrorShop from "../containers/error/ErrorShop";
 
 const AppRoutes: React.FC = () => {
   const { shop, isLoading } = useShopHook()
@@ -24,6 +26,10 @@ const AppRoutes: React.FC = () => {
         <Route path="carrinho" element={<div>carrinho</div>} />
         <Route path="checkout" element={<div>checkout</div>} />
         <Route path="pedidos" element={<div>pedidos</div>} />
+      </Route>
+      <Route path="/cliente" element={<AuthLayout />}>
+        <Route path="/cliente/login" element={<div>login</div>} />
+        <Route path="/cliente/cadastro" element={<div>cadastro</div>} />
       </Route>
     </Routes>
   );

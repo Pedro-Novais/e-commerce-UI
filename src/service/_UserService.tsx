@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getSubdomain } from "./subdomain";
+import { responsesMsg, responsesContent } from "./responses";
 
 export default class UserService {
   url: string | null = null;
@@ -15,8 +16,17 @@ export default class UserService {
 
   getUser = async () => {
     try {
-      const response = await axios.get(`${this.url}/api/user`);
+      const response = await axios.get(`${this.url}/api/user`, {validateStatus: (status) => status < 500});
       return response.data;
+    } catch (error) {
+      throw new Error("Erro ao carregar os dados do usuário");
+    }
+  };
+
+  userLogged = async () => {
+    try {
+      const response = await axios.get(`${this.url}/api/user/userlogged`, {validateStatus: (status) => status < 500});
+      return responsesMsg(response)
     } catch (error) {
       throw new Error("Erro ao carregar os dados do usuário");
     }
@@ -24,7 +34,7 @@ export default class UserService {
 
   createUser = async (data: object) => {
     try {
-      const response = await axios.post(`${this.url}/api/user`, data);
+      const response = await axios.post(`${this.url}/api/user`, data, {validateStatus: (status) => status < 500});
       return response.data;
     } catch (error) {
       throw new Error("Erro ao criar conta");
