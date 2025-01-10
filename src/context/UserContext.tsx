@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 import UserService from "../service/_UserService";
-import { UserContextType } from "../types/UserTypes";
+import { UserContextType, LoginUserType } from "../types/UserTypes";
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 interface UserProviderProps {
@@ -24,13 +24,32 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         setIsLoading(true)
         try {
             const result = await userService.userLogged()
-            if (result.success) {
+            if (!result.success) {
+                setUserLogged(false)
+            }
+            else {
                 setUserLogged(true)
             }
         } catch (error) {
             setError("Erro ao carregar informações do usuário")
         } finally {
             setIsLoading(false)
+        }
+    }
+
+    const fetchUserLogging = async (data: LoginUserType) => {
+        setIsLoading(true)
+        try {
+            const result = await userService.loginUser(data)
+            if (!result.success) {
+                setError(result.msg)
+                setUserLogged(false)
+            }
+            else {
+                setUserLogged(true)
+            }
+        } catch (error) {
+            setError("Erro ao realizar o login do usuário")
         }
     }
 
@@ -44,7 +63,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
                 user,
                 userLogged,
                 isLoading,
-                error
+                error,
+                fetchUserLogging
             }}>
             {children}
         </UserContext.Provider>

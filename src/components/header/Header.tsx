@@ -30,13 +30,15 @@ const Header: React.FC = () => {
         <header className={styles.header}>
             <div className={styles.containerHeader}>
                 <div className={styles.containerBars}>
-                    <div className={styles.logo}>
-                        <img
-                            src={logoImage?.url}
-                            className={styles.logoImage}
-                            loading="lazy"
-                        />
-                    </div>
+                    <Link to={'/'}>
+                        <div className={styles.logo}>
+                            <img
+                                src={logoImage?.url}
+                                className={styles.logoImage}
+                                loading="lazy"
+                            />
+                        </div>
+                    </Link>
                     <div className={styles.containerBarsIcons}>
                         <FaHeart className={styles.icon} />
                         <FaBars className={styles.icon} onClick={handleOpenBar} />

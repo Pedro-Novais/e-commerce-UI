@@ -4,11 +4,11 @@ import HeaderClient from "../../components/header/HeaderClient";
 import Footer from "../../components/footer/Footer";
 
 const AuthLayout = () => {
-    return(
+    return (
         <>
-        <HeaderClient/>
+            <HeaderClient />
             <Outlet />
-        <Footer />
+            <Footer />
         </>
     )
 }

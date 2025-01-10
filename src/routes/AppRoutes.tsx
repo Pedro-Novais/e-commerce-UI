@@ -7,6 +7,9 @@ import IndexLayout from "../layouts/index/IndexLayout";
 import IndexContainer from "../containers/index/IndexContainer";
 
 import AuthLayout from "../layouts/auth/AuthLayout";
+import LoginContainer from "../containers/login/LoginContainer"
+import RegisterContainer from "../containers/register/RegisterContainer";
+
 import ErrorShop from "../containers/error/ErrorShop";
 
 const AppRoutes: React.FC = () => {
@@ -27,9 +30,9 @@ const AppRoutes: React.FC = () => {
         <Route path="checkout" element={<div>checkout</div>} />
         <Route path="pedidos" element={<div>pedidos</div>} />
       </Route>
-      <Route path="/cliente" element={<AuthLayout />}>
-        <Route path="/cliente/login" element={<div>login</div>} />
-        <Route path="/cliente/cadastro" element={<div>cadastro</div>} />
+      <Route path="/" element={<AuthLayout />}>
+        <Route path="cliente/login" element={<LoginContainer />} />
+        <Route path="/cliente/cadastro" element={<RegisterContainer />} />
       </Route>
     </Routes>
   );

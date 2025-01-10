@@ -1,7 +1,7 @@
 import { useUser } from "../context/UserContext";
 
 export const useUserHook = () => {
-  const { user, userLogged, isLoading, error } = useUser();
+  const { user, userLogged, isLoading, error, fetchUserLogging } = useUser();
 
-  return { user, userLogged, isLoading, error };
+  return { user, userLogged, isLoading, error, fetchUserLogging };
 };

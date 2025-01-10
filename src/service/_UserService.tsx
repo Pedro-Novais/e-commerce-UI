@@ -44,7 +44,7 @@ export default class UserService {
 
   updateUser = async (data: object) => {
     try {
-      const response = await axios.patch(`${this.url}/api/user`, data);
+      const response = await axios.patch(`${this.url}/api/user`, data, {validateStatus: (status) => status < 500});
       return response.data;
     } catch (error) {
       throw new Error("Erro ao atualiza informações");
@@ -53,7 +53,7 @@ export default class UserService {
 
   deleteUser = async () => {
     try {
-      const response = await axios.delete(`${this.url}/api/user`);
+      const response = await axios.delete(`${this.url}/api/user`, {validateStatus: (status) => status < 500});
       return response.data;
     } catch (error) {
       throw new Error("Erro ao deletar usuário");
@@ -62,7 +62,7 @@ export default class UserService {
 
   createAddressUser = async (data: object) => {
     try {
-      const response = await axios.post(`${this.url}/api/user/address`, data);
+      const response = await axios.post(`${this.url}/api/user/address`, data, {validateStatus: (status) => status < 500});
       return response.data;
     } catch (error) {
       throw new Error("Erro ao criar endereço");
@@ -71,7 +71,7 @@ export default class UserService {
 
   updateAddressUser = async (data: object, id: string) => {
     try {
-      const response = await axios.put(`${this.url}/api/user/address/${id}`, data);
+      const response = await axios.put(`${this.url}/api/user/address/${id}`, data, {validateStatus: (status) => status < 500});
       return response.data;
     } catch (error) {
       throw new Error("Erro ao atualizar endereço");
@@ -80,17 +80,17 @@ export default class UserService {
 
   deleteAddressUser = async (id: string) => {
     try {
-      const response = await axios.delete(`${this.url}/api/user/address/${id}`);
+      const response = await axios.delete(`${this.url}/api/user/address/${id}`, {validateStatus: (status) => status < 500});
       return response.data;
     } catch (error) {
       throw new Error("Erro ao deletar endereço");
     }
   };
 
-  loginUser = async () => {
+  loginUser = async (data: object): Promise<{success: boolean} | any> => {
     try {
-      const response = await axios.delete(`${this.url}/api/user/login`);
-      return response.data;
+      const response = await axios.post(`${this.url}/api/user/login`, data, {validateStatus: (status) => status < 500});
+      return responsesMsg(response)
     } catch (error) {
       throw new Error("Erro ao realizar login");
     }
