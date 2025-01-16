@@ -38,7 +38,7 @@ export const ProductProvide: React.FC<ProductProviderProps> = ({ children }) => 
         }
     };
 
-    const fetchOneProduct = async (id: string) => {
+    const fetchOneProduct = async (id: string | undefined) => {
         setIsLoading(true);
         try {
             const result = await productService.getOneProduct(id);
@@ -46,7 +46,7 @@ export const ProductProvide: React.FC<ProductProviderProps> = ({ children }) => 
                 setError(result.msg || "Erro desconhecido ao carregar produto");
             }
             else {
-                setProduct(result.data)
+                setSingleProduct(result.data)
                 setError(null)
             }
         } catch (err) {

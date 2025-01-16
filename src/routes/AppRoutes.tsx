@@ -6,6 +6,8 @@ import { useShopHook } from "../hooks/useShop";
 import IndexLayout from "../layouts/index/IndexLayout";
 import IndexContainer from "../containers/index/IndexContainer";
 
+import SlugContainer from "../containers/slug/SlugContainer";
+
 import AuthLayout from "../layouts/auth/AuthLayout";
 import LoginContainer from "../containers/login/LoginContainer"
 import RegisterContainer from "../containers/register/RegisterContainer";
@@ -25,7 +27,7 @@ const AppRoutes: React.FC = () => {
     <Routes>
       <Route path="/" element={<IndexLayout />}>
         <Route index element={<IndexContainer />} />
-        <Route path="/:slug" element={<div>produto id</div>} />
+        <Route path="/:slug" element={<SlugContainer />} />
         <Route path="carrinho" element={<div>carrinho</div>} />
         <Route path="checkout" element={<div>checkout</div>} />
         <Route path="pedidos" element={<div>pedidos</div>} />
@@ -34,6 +36,9 @@ const AppRoutes: React.FC = () => {
         <Route path="cliente/login" element={<LoginContainer />} />
         <Route path="/cliente/cadastro" element={<RegisterContainer />} />
       </Route>
+      {/* <Route path="*" element={<IndexLayout />}>
+        <Route path="*" element={<IndexContainer />} />
+      </Route> */}
     </Routes>
   );
 };

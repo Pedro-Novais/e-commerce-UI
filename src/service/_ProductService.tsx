@@ -25,7 +25,7 @@ export default class ProductService {
     }
   }
 
-  getOneProduct = async (id: string) => {
+  getOneProduct = async (id: string | undefined) => {
     try {
       const response = await axios.get(`${this.url}/api/product/${id}`, {validateStatus: (status) => status < 500});
       return responsesContent(response);

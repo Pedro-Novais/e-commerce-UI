@@ -21,7 +21,7 @@ export type ProductContextType = {
     isLoading: boolean;
     error: string | null;
     fetchAllProduct: () => void;
-    fetchOneProduct: (id: string) => void;
+    fetchOneProduct: (id: string | undefined) => void;
 }
 
 type VariantsProduct = {

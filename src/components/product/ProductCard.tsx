@@ -40,17 +40,18 @@ const ProductCard: React.FC<{ product: ProductType }> = ({ product }) => {
                             ))
                         }
                     </div>
-                    <span className={styles.priceProduct}>R${product.price}</span>
+                    <span className={styles.priceProduct} style={{textDecoration: 'line-through', fontSize: '.8rem'}}>De: R${product.price.replace('.', ',')}</span>
+                    <span className={styles.priceProduct}>R${product.price.replace('.', ',')}</span>
                 </div>
             </Link>
-            <div className={styles.containerButtons}>
+            {/* <div className={styles.containerButtons}>
                 <button className={styles.buttonCardProduct}>
                     <FaMoneyBill />
                 </button>
                 <button className={styles.buttonCardProduct}>
                     <TiShoppingCart />
                 </button>
-            </div>
+            </div> */}
         </div>
     )
 }

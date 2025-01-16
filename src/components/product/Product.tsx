@@ -22,8 +22,8 @@ const Product: React.FC = () => {
                     ))
                 ) : (
 
-                    product.map((item) => (
-                        <ProductCard product={item} />
+                    product.map((item, index) => (
+                        <ProductCard key={index} product={item} />
                     ))
 
                 )
