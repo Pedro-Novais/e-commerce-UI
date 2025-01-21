@@ -65,7 +65,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    width: 70%;
+    width: 100%;
 }
 
 .colorItem {
